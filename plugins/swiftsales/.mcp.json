@@ -1,0 +1,7 @@
+{
+  "mcpServers" : {
+    "swiftsales" : {
+      "command" : "/Applications/SwiftSales.app/Contents/Helpers/SwiftSalesAgent.app/Contents/MacOS/SwiftSalesAgent"
+    }
+  }
+}

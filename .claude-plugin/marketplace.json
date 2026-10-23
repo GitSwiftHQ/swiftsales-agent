@@ -1,0 +1,25 @@
+{
+  "description" : "The SwiftSales plugin for Claude Code.",
+  "name" : "swiftsales-agent",
+  "owner" : {
+    "email" : "swiftsales@gitswift.com",
+    "name" : "GitSwift",
+    "url" : "https://swiftsales.gitswift.com"
+  },
+  "plugins" : [
+    {
+      "author" : {
+        "email" : "swiftsales@gitswift.com",
+        "name" : "GitSwift",
+        "url" : "https://swiftsales.gitswift.com"
+      },
+      "category" : "productivity",
+      "description" : "Sales, reviews and App Store releases from SwiftSales on your Mac.",
+      "homepage" : "https://github.com/GitSwiftHQ/swiftsales-agent",
+      "license" : "MIT",
+      "name" : "swiftsales",
+      "source" : "./plugins/swiftsales",
+      "version" : "1.0.0"
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "author" : {
+    "email" : "swiftsales@gitswift.com",
+    "name" : "GitSwift",
+    "url" : "https://swiftsales.gitswift.com"
+  },
+  "description" : "Sales, reviews and App Store releases from SwiftSales on your Mac.",
+  "displayName" : "SwiftSales",
+  "homepage" : "https://github.com/GitSwiftHQ/swiftsales-agent",
+  "keywords" : [
+    "app-store-connect",
+    "sales",
+    "reviews",
+    "releases",
+    "mcp"
+  ],
+  "license" : "MIT",
+  "name" : "swiftsales",
+  "repository" : "https://github.com/GitSwiftHQ/swiftsales-agent",
+  "version" : "1.0.0"
+}
