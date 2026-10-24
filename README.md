@@ -22,6 +22,15 @@ claude plugin install swiftsales@swiftsales-agent
 The first time Claude Code connects, SwiftSales asks you to allow it. You choose its access level, from Read Only to
 Submit, and which apps it can see.
 
+Using auto mode? Allow SwiftSales in your Claude Code settings (`~/.claude/settings.json`), or auto mode turns its
+calls down:
+
+```json
+{ "permissions": { "allow": ["mcp__plugin_swiftsales_swiftsales"] } }
+```
+
+Without the plugin, the rule is `mcp__swiftsales`. Submitting and releasing still wait for your approval in SwiftSales.
+
 If SwiftSales is somewhere other than Applications, use the command under Settings › Agent Access › Connect ›
 Claude Code › Without Plugin instead.
 

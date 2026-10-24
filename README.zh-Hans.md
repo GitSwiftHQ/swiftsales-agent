@@ -19,6 +19,14 @@ claude plugin install swiftsales@swiftsales-agent
 
 Claude Code 第一次连接时，SwiftSales 会请你允许，并由你选择访问级别（从只读到提审）以及它能看到哪些 App。
 
+在用自动模式？请在 Claude Code 的设置（`~/.claude/settings.json`）里允许 SwiftSales，否则自动模式会拒绝它的调用：
+
+```json
+{ "permissions": { "allow": ["mcp__plugin_swiftsales_swiftsales"] } }
+```
+
+不用插件时，规则是 `mcp__swiftsales`。提审和发布仍然要你在 SwiftSales 里批准。
+
 如果 SwiftSales 不在“应用程序”文件夹中，请改用 设置 › Agent 接入 › 连接 › Claude Code › 不用插件 里的命令。
 
 ## 可以这样问
