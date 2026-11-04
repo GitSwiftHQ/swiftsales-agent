@@ -19,7 +19,7 @@
       "license" : "MIT",
       "name" : "swiftsales",
       "source" : "./plugins/swiftsales",
-      "version" : "1.0.0"
+      "version" : "1.0.1"
     }
   ]
 }

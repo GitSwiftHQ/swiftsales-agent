@@ -34,6 +34,20 @@ Without the plugin, the rule is `mcp__swiftsales`. Submitting and releasing stil
 If SwiftSales is somewhere other than Applications, use the command under Settings › Agent Access › Connect ›
 Claude Code › Without Plugin instead.
 
+## Updating
+
+Claude Code updates plugins from other marketplaces only when you turn it on. To get new versions automatically, open
+`/plugin` › Marketplaces › swiftsales-agent and choose Enable auto-update.
+
+To update now, run:
+
+```sh
+claude plugin update swiftsales@swiftsales-agent
+```
+
+or choose Update now under `/plugin` › Installed. A session that is already open picks up the new version after
+`/reload-plugins`.
+
 ## What you can ask
 
 - "How is Tallytide doing since the last release?"
@@ -41,15 +55,35 @@ Claude Code › Without Plugin instead.
 - "Summarise this week's one-star reviews."
 - "Write What's New for 1.4 from the commits since 1.3, in every language the app has."
 - "Prepare 1.4 for review."
+- "Ship 1.4: build it, upload it and give it to the Beta group."
 
-The plugin adds four skills you can also run directly:
+The plugin adds five skills you can also run directly:
 
 | Skill | What it does |
 | --- | --- |
 | `/swiftsales:since-release` | Sales and reviews since an app's last release |
 | `/swiftsales:whats-new` | What's New for a version, for every language the app has |
+| `/swiftsales:ship` | A build of this repository's app, from archive to upload to release |
 | `/swiftsales:release` | A release from draft to submission |
 | `/swiftsales:create-iap` | An in-app purchase from draft to review |
+
+## Ship a build
+
+`/swiftsales:ship` takes the app in the repository you're working in all the way to App Store Connect:
+
+1. Your agent reads the scheme, team, signing and version numbers from the project, raises the build number, and asks
+   you when something isn't clear. It doesn't change your team, signing or certificates.
+2. It archives and exports the build (`xcodebuild -exportArchive`, method `app-store-connect`) into your build folder.
+3. SwiftSales uploads the `.ipa` or `.pkg` from your Mac. The first time, your agent asks where builds should live
+   (for example `~/Builds/<app>`) and SwiftSales asks you to choose that folder: pick the folder itself, not the
+   version folder inside it. Later builds in it upload without asking. Keep SwiftSales open while it uploads.
+4. Apple processes the build, usually in a few minutes. Your agent checks on it, then can give it to your TestFlight
+   groups.
+5. Your agent selects the build for the version and goes on like `/swiftsales:release`: What's New, App Information,
+   readiness, and submission, which waits for your approval.
+
+You can change the build folder in SwiftSales › Settings › Agent Access › Releases › Build Folder. Every upload is
+listed in Settings › Agent Access › Activity.
 
 ## Your approval, your data
 
