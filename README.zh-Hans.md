@@ -3,11 +3,11 @@
 [English](README.md)
 
 在 Claude Code 里问你的 App Store 销售和评论，并让它为你准备下一个版本。这个插件把 Claude Code 连接到你 Mac 上的
-[SwiftSales](https://swiftsales.gitswift.com)：agent 可以读取销售、订阅和用户评论，撰写“新功能”，提审和发布前都会先问你。
+[SwiftSales](https://swiftsales.gitswift.com)：agent 可以读取销售、订阅、交易和用户评论，撰写“新功能”，提审和发布前都会先问你。
 
 ## 准备
 
-- 一台 Mac，SwiftSales 安装在“应用程序”文件夹中。
+- 一台 Mac，SwiftSales 1.0.1 或更高版本安装在“应用程序”文件夹中。
 - 在 SwiftSales › 设置 › Agent 接入 中打开 Agent 接入。Agent 接入包含在永久高级版和 7 天免费试用中。
 
 ## 安装
@@ -17,7 +17,8 @@ claude plugin marketplace add GitSwiftHQ/swiftsales-agent
 claude plugin install swiftsales@swiftsales-agent
 ```
 
-Claude Code 第一次连接时，SwiftSales 会请你允许，并由你选择访问级别（从只读到提审）以及它能看到哪些 App。
+Claude Code 第一次连接时，SwiftSales 会请你允许，并由你选择访问级别（从只读到提审）以及它能看到哪些 App。安装后新开一个
+会话，就能马上使用 SwiftSales。
 
 在用自动模式？请在 Claude Code 的设置（`~/.claude/settings.json`）里允许 SwiftSales，否则自动模式会拒绝它的调用：
 
@@ -46,6 +47,7 @@ claude plugin update swiftsales@swiftsales-agent
 
 - “Tallytide 上次发布以来表现怎么样？”
 - “这个月哪些国家的收入最多？”
+- “Tallytide 今天有新的购买或退款吗？”
 - “总结一下这周的一星评论。”
 - “根据 1.3 以来的提交，用这个 App 的所有语言写 1.4 的新功能。”
 - “准备好 1.4 提审。”
@@ -78,11 +80,12 @@ claude plugin update swiftsales@swiftsales-agent
 - 提审和发布总是等你在 Mac 上的 SwiftSales 中批准。
 - 销售数据和 App Store Connect 密钥都留在 SwiftSales 中。插件只告诉 Claude Code SwiftSales 在哪里，不经过我们的任何服务器。
 - SwiftSales 把评论内容交给 agent 时，会标明这是用户写的文字，供它总结。
+- 交易交给 agent 时不含任何用户标识，交易号只保留后 4 位。
 - agent 的每一次调用都列在 设置 › Agent 接入 › 活动 中。
 
 ## 其他 agent
 
-Codex、Cursor、Claude 桌面版和 Xcode 在 SwiftSales 的 设置 › Agent 接入 › 连接 中连接，每个都有自己的按钮。
+Codex、Cursor 和 Xcode 在 SwiftSales 的 设置 › Agent 接入 › 连接 中连接，每个都有自己的按钮。
 
 ## 许可
 

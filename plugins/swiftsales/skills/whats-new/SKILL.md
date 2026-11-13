@@ -5,7 +5,9 @@ description: "Draft What's New from the repository's changes for every required 
 
 # Write What's New
 
-Uses the SwiftSales tools on this Mac: `release_context`, `get_release_draft`, `prepare_release`, `set_whats_new`, `approval_status`.
+Write short, user-facing What's New for a version from this repository's changes since the last release, in the style of the app's past notes, for every locale the app has (or the ones the user names), and save it to the version's release draft in SwiftSales.
+
+Start with the SwiftSales tool `release_context`. From there, follow the tools: each result's `nextStep` and each tool's description say what comes next. When a tool returns `pending`, stop and ask the user to approve in SwiftSales on their Mac; don't call approval_status in a loop.
 
 ## Inputs
 
@@ -14,11 +16,3 @@ Uses the SwiftSales tools on this Mac: `release_context`, `get_release_draft`, `
 - `locales` (optional): Comma-separated locales; default: every locale the app has.
 
 Take them from the request ($ARGUMENTS). When the app is unclear, call `list_apps` and use its app key; ask the user for anything else that is missing.
-
-## Steps
-
-Write What's New for <app> <version>.
-1. Call release_context for <app>: locales, the last three versions' notes and the length limits.
-2. Read this repository's changes since the last release and write short, user-facing notes in the style of the past ones, for these locales: <locales>.
-3. Call get_release_draft (or prepare_release) and then set_whats_new with every locale at once.
-When a tool returns `pending`, stop and ask the user to approve in SwiftSales on their Mac; don't call approval_status in a loop.

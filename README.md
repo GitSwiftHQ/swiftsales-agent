@@ -3,12 +3,12 @@
 [简体中文](README.zh-Hans.md)
 
 Ask Claude Code about your App Store sales and reviews, and let it prepare your next release. The plugin connects
-Claude Code to [SwiftSales](https://swiftsales.gitswift.com) on your Mac: your agent reads your sales, subscriptions
-and customer reviews, drafts What's New, and asks you before anything is submitted or released.
+Claude Code to [SwiftSales](https://swiftsales.gitswift.com) on your Mac: your agent reads your sales, subscriptions,
+transactions and customer reviews, drafts What's New, and asks you before anything is submitted or released.
 
 ## What you need
 
-- A Mac with SwiftSales installed in Applications.
+- A Mac with SwiftSales 1.0.1 or later installed in Applications.
 - Agent Access turned on in SwiftSales › Settings › Agent Access. Agent Access is part of Lifetime Premium and the
   7-day free trial.
 
@@ -20,7 +20,7 @@ claude plugin install swiftsales@swiftsales-agent
 ```
 
 The first time Claude Code connects, SwiftSales asks you to allow it. You choose its access level, from Read Only to
-Submit, and which apps it can see.
+Submit, and which apps it can see. Start a new session after installing to use SwiftSales right away.
 
 Using auto mode? Allow SwiftSales in your Claude Code settings (`~/.claude/settings.json`), or auto mode turns its
 calls down:
@@ -52,6 +52,7 @@ or choose Update now under `/plugin` › Installed. A session that is already op
 
 - "How is Tallytide doing since the last release?"
 - "Which countries brought the most proceeds this month?"
+- "Any purchases or refunds for Tallytide today?"
 - "Summarise this week's one-star reviews."
 - "Write What's New for 1.4 from the commits since 1.3, in every language the app has."
 - "Prepare 1.4 for review."
@@ -91,12 +92,12 @@ listed in Settings › Agent Access › Activity.
 - Your sales data and App Store Connect keys stay in SwiftSales. The plugin only tells Claude Code where SwiftSales
   is; nothing goes through a server of ours.
 - SwiftSales hands review text to your agent marked as customer text to summarise.
+- Transactions reach your agent without customer identifiers; transaction IDs show only their last 4 digits.
 - Every call your agent makes is listed in Settings › Agent Access › Activity.
 
 ## Other agents
 
-Codex, Cursor, Claude Desktop and Xcode connect from Settings › Agent Access › Connect in SwiftSales. Each has its
-own button there.
+Codex, Cursor and Xcode connect from Settings › Agent Access › Connect in SwiftSales. Each has its own button there.
 
 ## License
 
