@@ -1,7 +1,10 @@
 {
   "mcpServers" : {
     "swiftsales" : {
-      "command" : "/Applications/SwiftSales.app/Contents/Helpers/SwiftSalesAgent.app/Contents/MacOS/SwiftSalesAgent"
+      "args" : [
+        "${CLAUDE_PLUGIN_ROOT}/scripts/swiftsales-agent.sh"
+      ],
+      "command" : "sh"
     }
   }
 }

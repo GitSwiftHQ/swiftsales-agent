@@ -6,11 +6,15 @@ Ask Claude Code about your App Store sales and reviews, and let it prepare your 
 Claude Code to [SwiftSales](https://swiftsales.gitswift.com) on your Mac: your agent reads your sales, subscriptions,
 transactions and customer reviews, drafts What's New, and asks you before anything is submitted or released.
 
-## What you need
+The plugin works in Claude Code on a Mac.
 
-- A Mac with SwiftSales 1.0.1 or later installed in Applications.
-- Agent Access turned on in SwiftSales › Settings › Agent Access. Agent Access is part of Lifetime Premium and the
-  7-day free trial.
+## First, get SwiftSales
+
+1. [Get SwiftSales on the App Store](https://apps.apple.com/app/swiftsales-app-sales-tracker/id6825301543) on your
+   Mac and keep it in Applications. It's a free download; you need version 1.0.1 or later.
+2. Open SwiftSales and connect App Store Connect.
+3. Turn on Agent Access in SwiftSales › Settings › Agent Access. Agent Access is part of Lifetime Premium and the
+   7-day free trial.
 
 ## Install
 
@@ -86,18 +90,65 @@ The plugin adds five skills you can also run directly:
 You can change the build folder in SwiftSales › Settings › Agent Access › Releases › Build Folder. Every upload is
 listed in Settings › Agent Access › Activity.
 
+## Try it with sample data
+
+SwiftSales has a demo with sample apps, sales and reviews. It needs no App Store Connect key.
+
+1. Get SwiftSales from the App Store, open it and choose Try the Demo. Screens with sample data are labelled Demo Data.
+2. Agent Access needs Lifetime Premium or the free trial: choose Start 7-Day Free Trial in Settings › Purchase.
+3. Turn on Agent Access in Settings › Agent Access, install the plugin and start a new Claude Code session.
+4. Ask "How is Tallytide doing since the last release?" or "Which countries brought the most proceeds this month?"
+   Results from the demo carry `"demo": true`.
+
+## What the plugin runs
+
+- `.mcp.json` runs `sh ${CLAUDE_PLUGIN_ROOT}/scripts/swiftsales-agent.sh`. This short script starts the SwiftSales
+  agent helper inside the app (`/Applications/SwiftSales.app/Contents/Helpers/SwiftSalesAgent.app`), which connects
+  Claude Code to SwiftSales on your Mac. If SwiftSales isn't in Applications, the script says where to get it and
+  stops.
+- Five skills: `since-release`, `whats-new`, `ship`, `release` and `create-iap`.
+- The plugin itself fetches nothing, sends nothing, installs nothing and stores nothing.
+
 ## Your approval, your data
 
 - Submitting for review and releasing always wait for your approval in SwiftSales on your Mac.
-- Your sales data and App Store Connect keys stay in SwiftSales. The plugin only tells Claude Code where SwiftSales
-  is; nothing goes through a server of ours.
+- Your App Store Connect keys stay in SwiftSales. SwiftSales reads your data from App Store Connect with your own key;
+  none of it goes through a server of ours.
+- What your agent asks for goes to your Claude Code session: sales figures, review text and reviewer nicknames.
+- Some tools read and, when you ask, change personal data in your App Store Connect team: names and email addresses of
+  team members and testers, TestFlight feedback (tester names, comments, crash logs), the App Review contact (name,
+  email, phone) and registered devices (names, UDIDs). Changes happen only within the access level you gave the agent
+  in SwiftSales.
+- This data moves only between your Mac, Apple and your agent. The plugin and GitSwift store none of it, and none of
+  it goes through a server of ours.
 - SwiftSales hands review text to your agent marked as customer text to summarise.
 - Transactions reach your agent without customer identifiers; transaction IDs show only their last 4 digits.
 - Every call your agent makes is listed in Settings › Agent Access › Activity.
 
+## Troubleshooting
+
+- **No SwiftSales tools, or `/mcp` shows `plugin:swiftsales:swiftsales` as failed:** check that SwiftSales for Mac is in Applications, then
+  start a new session. If it's somewhere else, use the command under Settings › Agent Access › Connect › Claude Code ›
+  Without Plugin.
+- **Calls say Agent Access is off or needs Lifetime Premium:** turn on Agent Access in Settings › Agent Access, or
+  start the free trial in Settings › Purchase.
+- **Calls wait for permission:** SwiftSales asks you to allow Claude Code the first time it connects. Choose Allow
+  on your Mac.
+- **Calls say SwiftSales needs reconnecting:** run `/mcp`, choose `plugin:swiftsales:swiftsales`, then Reconnect.
+- **Auto mode turns calls down:** add the allow rule under Install.
+
 ## Other agents
 
 Codex, Cursor and Xcode connect from Settings › Agent Access › Connect in SwiftSales. Each has its own button there.
+
+## Support
+
+Email [swiftsales@gitswift.com](mailto:swiftsales@gitswift.com) or visit
+[swiftsales.gitswift.com/support](https://swiftsales.gitswift.com/support).
+
+## Privacy
+
+[Privacy Policy](https://swiftsales.gitswift.com/privacy)
 
 ## License
 

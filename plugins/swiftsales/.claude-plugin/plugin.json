@@ -16,6 +16,7 @@
   ],
   "license" : "MIT",
   "name" : "swiftsales",
+  "privacyPolicyUrl" : "https://swiftsales.gitswift.com/privacy",
   "repository" : "https://github.com/GitSwiftHQ/swiftsales-agent",
-  "version" : "1.3.0"
+  "version" : "1.3.1"
 }

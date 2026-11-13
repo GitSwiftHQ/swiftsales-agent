@@ -9,6 +9,8 @@ Summarise how an app is doing since its last release: proceeds, downloads and ne
 
 Start with the SwiftSales tool `sales_since_release`. From there, follow the tools: each result's `nextStep` and each tool's description say what comes next. When a tool returns `pending`, stop and ask the user to approve in SwiftSales on their Mac; don't call approval_status in a loop.
 
+If no SwiftSales tool is available in this session, even after searching for it, tell the user that SwiftSales works in Claude Code on a Mac with SwiftSales for Mac in Applications; without the app, they can get it from the App Store (https://apps.apple.com/app/swiftsales-app-sales-tracker/id6825301543), open it, turn on Settings › Agent Access, then start a new session there. Then stop.
+
 ## Inputs
 
 - `app`: App key or exact name.
